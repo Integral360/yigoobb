@@ -4,256 +4,668 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>YigooBB mi BB</title>
-
+  <meta name="description" content="YigooBB mi BB - Productos tiernos y personalizados para bebé. Contacto directo con Ruth Belalcazar." />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
   <style>
-    :root {
-      --rosa: #f7c8d8;
-      --rosa-fuerte: #ee9fbb;
-      --blanco: #ffffff;
-      --gris: #666;
-      --oscuro: #444;
+    :root{
+      --bg1:#fff8fb;
+      --bg2:#fdebf2;
+      --card:#ffffffd9;
+      --white:#ffffff;
+      --pink:#f5bfd2;
+      --pink-strong:#e995b5;
+      --pink-deep:#d86493;
+      --lav:#f0e8ff;
+      --text:#4d4d57;
+      --muted:#7c7c88;
+      --shadow:0 20px 50px rgba(219, 112, 147, 0.12);
+      --shadow-soft:0 12px 30px rgba(0,0,0,.08);
+      --radius-xl:34px;
+      --radius-lg:24px;
+      --radius-md:18px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #fff7fb, #fdeaf1);
-      padding: 16px;
+    html{
+      scroll-behavior:smooth;
     }
 
-    .container {
-      max-width: 420px;
-      margin: auto;
-      background: #fff;
-      border-radius: 30px;
-      padding: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    body{
+      font-family: "Segoe UI", Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, #fff 0%, #fff6fa 20%, transparent 45%),
+        radial-gradient(circle at top right, #ffeef5 0%, transparent 35%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+      padding:18px 14px 90px;
+      overflow-x:hidden;
     }
 
-    .logo {
-      text-align: center;
-      margin-bottom: 10px;
+    .page{
+      max-width:430px;
+      margin:0 auto;
+      position:relative;
     }
 
-    .logo img {
-      width: 130px;
+    .blur-shape{
+      position:absolute;
+      border-radius:999px;
+      filter:blur(40px);
+      opacity:.45;
+      z-index:0;
+      pointer-events:none;
     }
 
-    .profile {
-      text-align: center;
+    .shape-1{
+      width:140px;
+      height:140px;
+      background:#ffd6e5;
+      top:40px;
+      left:-30px;
     }
 
-    .profile img {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid white;
-      box-shadow: 0 8px 20px rgba(238,159,187,0.4);
+    .shape-2{
+      width:120px;
+      height:120px;
+      background:#eadfff;
+      top:280px;
+      right:-20px;
     }
 
-    .empresa {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #d45a8c;
-      margin-top: 12px;
+    .shape-3{
+      width:140px;
+      height:140px;
+      background:#ffe4ef;
+      bottom:120px;
+      left:-20px;
     }
 
-    .persona {
-      font-size: 1rem;
-      margin-top: 5px;
-      font-weight: bold;
+    .card{
+      position:relative;
+      z-index:1;
+      background:var(--card);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,.6);
+      border-radius:var(--radius-xl);
+      box-shadow:var(--shadow);
+      overflow:hidden;
     }
 
-    .btn-contacto {
-      margin-top: 15px;
-      width: 100%;
-      padding: 12px;
-      border-radius: 50px;
-      border: none;
-      background: var(--rosa-fuerte);
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
+    .hero{
+      position:relative;
+      padding:28px 20px 22px;
+      text-align:center;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.55)),
+        radial-gradient(circle at top, #fff 0%, #ffe8f1 60%, #fbe2ec 100%);
     }
 
-    .lineas {
-      margin-top: 20px;
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:auto 0 0 0;
+      height:60px;
+      background:linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,.55));
+      pointer-events:none;
     }
 
-    .linea {
-      background: #fff5f9;
-      border-radius: 20px;
-      padding: 12px;
-      margin-bottom: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    .logo-wrap{
+      width:132px;
+      height:132px;
+      margin:0 auto 14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(255,255,255,.72);
+      border-radius:30px;
+      box-shadow:0 12px 32px rgba(233,149,181,.18);
+      border:1px solid rgba(255,255,255,.75);
+      animation:floatSoft 4s ease-in-out infinite;
     }
 
-    .linea-titulo {
-      font-weight: bold;
-      margin-bottom: 8px;
-      text-align: center;
+    .logo-wrap img{
+      width:106px;
+      height:106px;
+      object-fit:contain;
+      display:block;
     }
 
-    .acciones {
-      display: flex;
-      gap: 10px;
+    .profile-ring{
+      width:126px;
+      height:126px;
+      margin:0 auto 14px;
+      padding:5px;
+      border-radius:50%;
+      background:linear-gradient(135deg, #fff, #ffd7e5, #f0e8ff);
+      box-shadow:0 12px 30px rgba(216,100,147,.24);
     }
 
-    .acciones a {
-      flex: 1;
-      text-align: center;
-      padding: 10px;
-      border-radius: 20px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: bold;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 6px;
+    .profile-photo{
+      width:100%;
+      height:100%;
+      border-radius:50%;
+      overflow:hidden;
+      background:#fff;
+      border:4px solid #fff;
     }
 
-    .whatsapp {
-      background: #25d366;
-      color: white;
+    .profile-photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
     }
 
-    .llamar {
-      background: #007bff;
-      color: white;
+    .company{
+      font-size:1.75rem;
+      line-height:1.1;
+      font-weight:800;
+      color:var(--pink-deep);
+      margin-bottom:6px;
+      letter-spacing:.2px;
     }
 
-    .productos {
-      margin-top: 25px;
+    .person{
+      font-size:1rem;
+      font-weight:700;
+      color:var(--text);
+      margin-bottom:8px;
     }
 
-    .titulo {
-      text-align: center;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #d45a8c;
-      margin-bottom: 12px;
+    .tagline{
+      max-width:290px;
+      margin:0 auto;
+      font-size:.94rem;
+      line-height:1.45;
+      color:var(--muted);
     }
 
-    .producto {
-      margin-bottom: 15px;
-      background: white;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    .save-btn{
+      width:100%;
+      border:none;
+      margin-top:18px;
+      padding:15px 18px;
+      border-radius:999px;
+      background:linear-gradient(90deg, var(--pink-strong), var(--pink-deep));
+      color:#fff;
+      font-size:1rem;
+      font-weight:800;
+      cursor:pointer;
+      box-shadow:0 14px 28px rgba(216,100,147,.28);
+      transition:transform .2s ease, box-shadow .2s ease;
     }
 
-    .producto img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
+    .save-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 18px 30px rgba(216,100,147,.34);
     }
 
-    .producto .info {
-      padding: 10px;
-      text-align: center;
-      font-weight: bold;
+    .save-btn i{
+      margin-right:8px;
     }
 
+    .section{
+      padding:18px 18px 0;
+    }
+
+    .section-title{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      font-size:1.18rem;
+      font-weight:800;
+      color:var(--pink-deep);
+      margin-bottom:14px;
+      text-align:center;
+    }
+
+    .section-title i{
+      font-size:1rem;
+      color:var(--pink-strong);
+    }
+
+    .lines-grid{
+      display:grid;
+      gap:14px;
+    }
+
+    .line-card{
+      background:linear-gradient(180deg, #fff, #fff8fb);
+      border-radius:24px;
+      padding:16px;
+      box-shadow:var(--shadow-soft);
+      border:1px solid rgba(233,149,181,.14);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+
+    .line-card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 30px rgba(0,0,0,.09);
+    }
+
+    .line-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:12px;
+    }
+
+    .line-label{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      color:var(--text);
+      font-size:.98rem;
+    }
+
+    .line-label .bubble{
+      width:36px;
+      height:36px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg, #ffdce8, #f4eaff);
+      color:var(--pink-deep);
+      box-shadow:0 8px 18px rgba(216,100,147,.12);
+      flex-shrink:0;
+    }
+
+    .line-number{
+      font-size:.92rem;
+      color:var(--muted);
+      font-weight:700;
+    }
+
+    .line-actions{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+    }
+
+    .action{
+      text-decoration:none;
+      border-radius:18px;
+      padding:12px 10px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:8px;
+      font-weight:800;
+      font-size:.92rem;
+      transition:transform .2s ease, opacity .2s ease;
+    }
+
+    .action:hover{
+      transform:translateY(-2px);
+      opacity:.96;
+    }
+
+    .whatsapp{
+      background:#25d366;
+      color:#fff;
+      box-shadow:0 10px 22px rgba(37, 211, 102, .22);
+    }
+
+    .call{
+      background:linear-gradient(90deg, #69b6ff, #4d8ef7);
+      color:#fff;
+      box-shadow:0 10px 22px rgba(77, 142, 247, .22);
+    }
+
+    .products-grid{
+      display:grid;
+      gap:15px;
+      padding-bottom:20px;
+    }
+
+    .product{
+      background:linear-gradient(180deg, #fff, #fff8fb);
+      border-radius:26px;
+      overflow:hidden;
+      box-shadow:var(--shadow-soft);
+      border:1px solid rgba(233,149,181,.13);
+      transition:transform .24s ease, box-shadow .24s ease;
+    }
+
+    .product:hover{
+      transform:translateY(-4px);
+      box-shadow:0 18px 36px rgba(0,0,0,.10);
+    }
+
+    .product-image{
+      position:relative;
+      width:100%;
+      height:232px;
+      background:#fff;
+      overflow:hidden;
+    }
+
+    .product-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transition:transform .45s ease;
+    }
+
+    .product:hover .product-image img{
+      transform:scale(1.04);
+    }
+
+    .product-badge{
+      position:absolute;
+      top:12px;
+      left:12px;
+      background:rgba(255,255,255,.92);
+      color:var(--pink-deep);
+      font-size:.76rem;
+      font-weight:800;
+      padding:8px 12px;
+      border-radius:999px;
+      box-shadow:0 8px 18px rgba(0,0,0,.08);
+    }
+
+    .product-info{
+      padding:15px 15px 16px;
+    }
+
+    .product-title{
+      font-size:1rem;
+      font-weight:800;
+      color:var(--text);
+      margin-bottom:8px;
+    }
+
+    .product-text{
+      font-size:.92rem;
+      line-height:1.5;
+      color:var(--muted);
+      margin-bottom:12px;
+    }
+
+    .product-link{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      text-decoration:none;
+      padding:10px 14px;
+      border-radius:999px;
+      background:#ffe3ed;
+      color:var(--pink-deep);
+      font-size:.9rem;
+      font-weight:800;
+      transition:transform .2s ease, background .2s ease;
+    }
+
+    .product-link:hover{
+      transform:translateY(-1px);
+      background:#ffd8e7;
+    }
+
+    .footer{
+      padding:0 18px 22px;
+      text-align:center;
+      color:var(--muted);
+      font-size:.82rem;
+    }
+
+    .floating-wa{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      width:58px;
+      height:58px;
+      border-radius:50%;
+      background:#25d366;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.6rem;
+      text-decoration:none;
+      box-shadow:0 16px 26px rgba(37, 211, 102, .32);
+      z-index:30;
+      animation:pulse 2s infinite;
+    }
+
+    .floating-wa:hover{
+      transform:scale(1.06);
+    }
+
+    @keyframes floatSoft{
+      0%,100%{ transform:translateY(0); }
+      50%{ transform:translateY(-5px); }
+    }
+
+    @keyframes pulse{
+      0%{ box-shadow:0 0 0 0 rgba(37,211,102,.45), 0 16px 26px rgba(37, 211, 102, .32); }
+      70%{ box-shadow:0 0 0 16px rgba(37,211,102,0), 0 16px 26px rgba(37, 211, 102, .32); }
+      100%{ box-shadow:0 0 0 0 rgba(37,211,102,0), 0 16px 26px rgba(37, 211, 102, .32); }
+    }
+
+    .fade-up{
+      opacity:0;
+      transform:translateY(18px);
+      animation:fadeUp .7s ease forwards;
+    }
+
+    .delay-1{ animation-delay:.08s; }
+    .delay-2{ animation-delay:.16s; }
+    .delay-3{ animation-delay:.24s; }
+    .delay-4{ animation-delay:.32s; }
+    .delay-5{ animation-delay:.40s; }
+
+    @keyframes fadeUp{
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @media (max-width:380px){
+      .company{
+        font-size:1.55rem;
+      }
+
+      .product-image{
+        height:210px;
+      }
+
+      .line-actions{
+        grid-template-columns:1fr;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="page">
+    <div class="blur-shape shape-1"></div>
+    <div class="blur-shape shape-2"></div>
+    <div class="blur-shape shape-3"></div>
 
-<div class="container">
+    <main class="card">
+      <section class="hero fade-up">
+        <div class="logo-wrap">
+          <img src="logo.jpeg" alt="Logo YigooBB mi BB">
+        </div>
 
-  <!-- Logo -->
-  <div class="logo">
-    <img src="logo.jpeg">
-  </div>
+        <div class="profile-ring">
+          <div class="profile-photo">
+            <img src="foto.jpeg" alt="Ruth Belalcazar">
+          </div>
+        </div>
 
-  <!-- Perfil -->
-  <div class="profile">
-    <img src="foto.jpeg">
-    <div class="empresa">YigooBB mi BB</div>
-    <div class="persona">Ruth Belalcazar</div>
+        <h1 class="company">YigooBB mi BB</h1>
+        <div class="person">Ruth Belalcazar</div>
+        <p class="tagline">
+          Productos tiernos, delicados y personalizados para consentir a tu bebé con amor y estilo.
+        </p>
 
-    <button class="btn-contacto" onclick="guardarContacto()">
-      Guardar contacto
-    </button>
-  </div>
+        <button class="save-btn" onclick="guardarContacto()">
+          <i class="fa-solid fa-address-book"></i>
+          Guardar contacto
+        </button>
+      </section>
 
-  <!-- Líneas -->
-  <div class="lineas">
+      <section class="section fade-up delay-1">
+        <h2 class="section-title">
+          <i class="fa-solid fa-headset"></i>
+          Líneas de atención
+        </h2>
 
-    <div class="linea">
-      <div class="linea-titulo">Línea de atención 1</div>
-      <div class="acciones">
-        <a class="whatsapp" href="https://wa.me/573122878767" target="_blank">
-          <i class="fa-brands fa-whatsapp"></i> WhatsApp
-        </a>
-        <a class="llamar" href="tel:+573122878767">
-          <i class="fa-solid fa-phone"></i> Llamar
-        </a>
+        <div class="lines-grid">
+          <article class="line-card">
+            <div class="line-head">
+              <div class="line-label">
+                <div class="bubble">
+                  <i class="fa-solid fa-heart"></i>
+                </div>
+                <span>Línea de atención 1</span>
+              </div>
+              <div class="line-number">312 287 8767</div>
+            </div>
+
+            <div class="line-actions">
+              <a class="action whatsapp" href="https://wa.me/573122878767?text=Hola%20Ruth%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20productos%20de%20YigooBB%20mi%20BB" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i>
+                WhatsApp
+              </a>
+
+              <a class="action call" href="tel:+573122878767">
+                <i class="fa-solid fa-phone"></i>
+                Llamar
+              </a>
+            </div>
+          </article>
+
+          <article class="line-card">
+            <div class="line-head">
+              <div class="line-label">
+                <div class="bubble">
+                  <i class="fa-solid fa-star"></i>
+                </div>
+                <span>Línea de atención 2</span>
+              </div>
+              <div class="line-number">318 084 7490</div>
+            </div>
+
+            <div class="line-actions">
+              <a class="action whatsapp" href="https://wa.me/573180847490?text=Hola%20Ruth%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20productos%20de%20YigooBB%20mi%20BB" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i>
+                WhatsApp
+              </a>
+
+              <a class="action call" href="tel:+573180847490">
+                <i class="fa-solid fa-phone"></i>
+                Llamar
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section fade-up delay-2">
+        <h2 class="section-title">
+          <i class="fa-solid fa-gift"></i>
+          Nuestros productos
+        </h2>
+
+        <div class="products-grid">
+          <article class="product">
+            <div class="product-image">
+              <img src="foto1.jpeg" alt="Lencería para cuna">
+              <div class="product-badge">Destacado</div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Lencería para cuna</h3>
+              <p class="product-text">
+                Diseños tiernos y delicados para crear un espacio cómodo, hermoso y acogedor para tu bebé.
+              </p>
+              <a class="product-link" href="https://wa.me/573122878767?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20lencer%C3%ADa%20para%20cuna%20de%20YigooBB%20mi%20BB" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i>
+                Consultar
+              </a>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product-image">
+              <img src="Foto2.jpeg" alt="Set decorativo para bebé">
+              <div class="product-badge">Especial</div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Set decorativo para bebé</h3>
+              <p class="product-text">
+                Complementos funcionales y adorables para decorar, organizar y dar un toque encantador al espacio del bebé.
+              </p>
+              <a class="product-link" href="https://wa.me/573180847490?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20set%20decorativo%20para%20beb%C3%A9%20de%20YigooBB%20mi%20BB" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i>
+                Consultar
+              </a>
+            </div>
+          </article>
+
+          <article class="product">
+            <div class="product-image">
+              <img src="foto3.jpeg" alt="Cojines personalizados">
+              <div class="product-badge">Personalizado</div>
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">Cojines personalizados</h3>
+              <p class="product-text">
+                Piezas suaves y especiales para darle identidad, ternura y un estilo único a la habitación de tu bebé.
+              </p>
+              <a class="product-link" href="https://wa.me/573122878767?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20cojines%20personalizados%20de%20YigooBB%20mi%20BB" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i>
+                Consultar
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <div class="footer fade-up delay-3">
+        YigooBB mi BB
       </div>
-    </div>
-
-    <div class="linea">
-      <div class="linea-titulo">Línea de atención 2</div>
-      <div class="acciones">
-        <a class="whatsapp" href="https://wa.me/573180847490" target="_blank">
-          <i class="fa-brands fa-whatsapp"></i> WhatsApp
-        </a>
-        <a class="llamar" href="tel:+573180847490">
-          <i class="fa-solid fa-phone"></i> Llamar
-        </a>
-      </div>
-    </div>
-
+    </main>
   </div>
 
-  <!-- Productos -->
-  <div class="productos">
-    <div class="titulo">Nuestros productos</div>
+  <a class="floating-wa" href="https://wa.me/573122878767?text=Hola%20Ruth%2C%20quiero%20informaci%C3%B3n%20sobre%20los%20productos%20de%20YigooBB%20mi%20BB" target="_blank" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
 
-    <div class="producto">
-      <img src="foto1.jpeg">
-      <div class="info">Lencería para cuna</div>
-    </div>
-
-    <div class="producto">
-      <img src="Foto2.jpeg">
-      <div class="info">Set decorativo</div>
-    </div>
-
-    <div class="producto">
-      <img src="foto3.jpeg">
-      <div class="info">Cojines personalizados</div>
-    </div>
-
-  </div>
-
-</div>
-
-<script>
-function guardarContacto() {
-  const vcard = `BEGIN:VCARD
+  <script>
+    function guardarContacto() {
+      const vcard = `BEGIN:VCARD
 VERSION:3.0
 FN:Ruth Belalcazar
 ORG:YigooBB mi BB
-TEL:+573122878767
-TEL:+573180847490
+TITLE:Atención comercial
+TEL;TYPE=CELL:+57 3122878767
+TEL;TYPE=CELL:+57 3180847490
+NOTE:Contacto de YigooBB mi BB
 END:VCARD`;
 
-  const blob = new Blob([vcard], { type: "text/vcard" });
-  const link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
-  link.download = "contacto.vcf";
-  link.click();
-}
-</script>
-
+      const blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "Ruth_Belalcazar_YigooBB.vcf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
 </body>
 </html>
