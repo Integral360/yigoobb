@@ -255,8 +255,7 @@
     .line-head{
       display:flex;
       align-items:center;
-      justify-content:space-between;
-      gap:12px;
+      justify-content:center;
       margin-bottom:12px;
     }
 
@@ -280,12 +279,6 @@
       color:var(--pink-deep);
       box-shadow:0 8px 18px rgba(216,100,147,.12);
       flex-shrink:0;
-    }
-
-    .line-number{
-      font-size:.92rem;
-      color:var(--muted);
-      font-weight:700;
     }
 
     .line-actions{
@@ -347,21 +340,25 @@
     .product-image{
       position:relative;
       width:100%;
-      height:232px;
-      background:#fff;
+      height:260px;
+      background:linear-gradient(180deg, #fff, #fff7fb);
       overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px;
     }
 
     .product-image img{
       width:100%;
       height:100%;
-      object-fit:cover;
+      object-fit:contain;
       display:block;
-      transition:transform .45s ease;
+      transition:transform .35s ease;
     }
 
     .product:hover .product-image img{
-      transform:scale(1.04);
+      transform:scale(1.02);
     }
 
     .product-badge{
@@ -421,6 +418,17 @@
       font-size:.82rem;
     }
 
+    .brand{
+      margin-top:10px;
+      font-size:.78rem;
+      color:#999;
+    }
+
+    .brand strong{
+      color:#d86493;
+      font-weight:800;
+    }
+
     .floating-wa{
       position:fixed;
       right:18px;
@@ -464,8 +472,6 @@
     .delay-1{ animation-delay:.08s; }
     .delay-2{ animation-delay:.16s; }
     .delay-3{ animation-delay:.24s; }
-    .delay-4{ animation-delay:.32s; }
-    .delay-5{ animation-delay:.40s; }
 
     @keyframes fadeUp{
       to{
@@ -480,7 +486,7 @@
       }
 
       .product-image{
-        height:210px;
+        height:220px;
       }
 
       .line-actions{
@@ -534,7 +540,6 @@
                 </div>
                 <span>Línea de atención 1</span>
               </div>
-              <div class="line-number">312 287 8767</div>
             </div>
 
             <div class="line-actions">
@@ -558,7 +563,6 @@
                 </div>
                 <span>Línea de atención 2</span>
               </div>
-              <div class="line-number">318 084 7490</div>
             </div>
 
             <div class="line-actions">
@@ -638,6 +642,9 @@
 
       <div class="footer fade-up delay-3">
         YigooBB mi BB
+        <div class="brand">
+          Powered by <strong>Integral360</strong>
+        </div>
       </div>
     </main>
   </div>
