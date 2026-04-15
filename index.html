@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YigooBB mi BB</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+
+  <style>
+    :root {
+      --rosa: #f7c8d8;
+      --rosa-fuerte: #ee9fbb;
+      --blanco: #ffffff;
+      --gris: #666;
+      --oscuro: #444;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #fff7fb, #fdeaf1);
+      padding: 16px;
+    }
+
+    .container {
+      max-width: 420px;
+      margin: auto;
+      background: #fff;
+      border-radius: 30px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .logo img {
+      width: 130px;
+    }
+
+    .profile {
+      text-align: center;
+    }
+
+    .profile img {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 8px 20px rgba(238,159,187,0.4);
+    }
+
+    .empresa {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #d45a8c;
+      margin-top: 12px;
+    }
+
+    .persona {
+      font-size: 1rem;
+      margin-top: 5px;
+      font-weight: bold;
+    }
+
+    .btn-contacto {
+      margin-top: 15px;
+      width: 100%;
+      padding: 12px;
+      border-radius: 50px;
+      border: none;
+      background: var(--rosa-fuerte);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .lineas {
+      margin-top: 20px;
+    }
+
+    .linea {
+      background: #fff5f9;
+      border-radius: 20px;
+      padding: 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .linea-titulo {
+      font-weight: bold;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .acciones {
+      display: flex;
+      gap: 10px;
+    }
+
+    .acciones a {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .whatsapp {
+      background: #25d366;
+      color: white;
+    }
+
+    .llamar {
+      background: #007bff;
+      color: white;
+    }
+
+    .productos {
+      margin-top: 25px;
+    }
+
+    .titulo {
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #d45a8c;
+      margin-bottom: 12px;
+    }
+
+    .producto {
+      margin-bottom: 15px;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .producto img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .producto .info {
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Logo -->
+  <div class="logo">
+    <img src="logo.jpeg">
+  </div>
+
+  <!-- Perfil -->
+  <div class="profile">
+    <img src="foto.jpeg">
+    <div class="empresa">YigooBB mi BB</div>
+    <div class="persona">Ruth Belalcazar</div>
+
+    <button class="btn-contacto" onclick="guardarContacto()">
+      Guardar contacto
+    </button>
+  </div>
+
+  <!-- Líneas -->
+  <div class="lineas">
+
+    <div class="linea">
+      <div class="linea-titulo">Línea de atención 1</div>
+      <div class="acciones">
+        <a class="whatsapp" href="https://wa.me/573122878767" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+        <a class="llamar" href="tel:+573122878767">
+          <i class="fa-solid fa-phone"></i> Llamar
+        </a>
+      </div>
+    </div>
+
+    <div class="linea">
+      <div class="linea-titulo">Línea de atención 2</div>
+      <div class="acciones">
+        <a class="whatsapp" href="https://wa.me/573180847490" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+        <a class="llamar" href="tel:+573180847490">
+          <i class="fa-solid fa-phone"></i> Llamar
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Productos -->
+  <div class="productos">
+    <div class="titulo">Nuestros productos</div>
+
+    <div class="producto">
+      <img src="foto1.jpeg">
+      <div class="info">Lencería para cuna</div>
+    </div>
+
+    <div class="producto">
+      <img src="Foto2.jpeg">
+      <div class="info">Set decorativo</div>
+    </div>
+
+    <div class="producto">
+      <img src="foto3.jpeg">
+      <div class="info">Cojines personalizados</div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+function guardarContacto() {
+  const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Ruth Belalcazar
+ORG:YigooBB mi BB
+TEL:+573122878767
+TEL:+573180847490
+END:VCARD`;
+
+  const blob = new Blob([vcard], { type: "text/vcard" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "contacto.vcf";
+  link.click();
+}
+</script>
+
+</body>
+</html>
